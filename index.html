@@ -1,11 +1,11 @@
 <html>
 <head>
     <title>my blog</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Poppins&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
@@ -211,7 +211,22 @@
 var menuBtn = document.getElementById("menuBtn")    
 var sideNav = document.getElementById("sideNav")    
 var menu = document.getElementById("menu") 
-
+var imgName = ["images/avartar.jpg","images/me1.jpg","images/img-1.jpg","images/me.jpg","images/laptrinh.jpg"]
+var slideIndex = 0;
+changeImage();
+function changeImage(){
+    slideIndex++;
+    var slides = document.getElementById("banner");
+    if (slideIndex > imgName.length) {
+        slideIndex = 1
+    }
+    slides.style.background = "linear-gradient(rgba(0,0,0,0.1),#4ac5b9),url(" + imgName[slideIndex - 1] + ")";
+    slides.style.height = "120vh";
+    slides.style.backgroundSize = "cover";
+    slides.style.backgroundRepeat = "no repeat";
+    slides.style.backgroundPosition = "center";
+    setTimeout(changeImage,3000);
+}
 sideNav.style.right = "-250px";
 
 menuBtn.onclick = function(){
@@ -228,7 +243,7 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 	speed: 1000,
 	speedAsDuration: true
 });
-</script>    
+</script>   
     
 </body>
 </html>
